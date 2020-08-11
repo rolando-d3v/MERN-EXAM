@@ -1,0 +1,34 @@
+// tbody {
+//     display:block;
+//     max-height:78vh;
+//     overflow-y:auto;
+// }
+// thead, tbody tr {
+//     display:table;
+//     width:100%;
+//     table-layout:fixed;
+// }
+// thead {
+//     width: calc( 100% - 1em )
+// } 
+
+tbody {
+    display:block;
+    max-height:78vh;
+    overflow-y:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+thead {
+    width: calc( 100% - 1em )
+} 
+
+tr{
+    &:hover {
+        background-color: #96bb7c !important;
+    }
+}
+
