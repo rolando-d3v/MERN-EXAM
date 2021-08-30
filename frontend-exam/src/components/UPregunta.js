@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import clienteAxios from "../config/axios";
 import { Form, Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
-const UPregunta = ({ idx }) => {
+const UPregunta = (props) => {
   const [data, setData] = useState({
     id: "",
     pregunta: "",
@@ -13,11 +14,14 @@ const UPregunta = ({ idx }) => {
     respuesta_d: "",
     respuesta_e: "",
     respuesta_correcta: "",
+    tema: "",
   });
+
+  
 
   useEffect(() => {
     const res = async () => {
-      const re = await clienteAxios.get(`/exam/preguntas/${idx}`);
+      const re = await clienteAxios.get(`/exam/preguntas/${props.idx}`);
       console.log(re.data);
       setData(re.data);
     };
@@ -41,11 +45,13 @@ const UPregunta = ({ idx }) => {
     respuesta_d,
     respuesta_e,
     respuesta_correcta,
+    tema,
   } = data;
 
   const updatePregunta = async (e) => {
     e.preventDefault();
-    await clienteAxios.put(`/exam/preguntas/${idx}`, data);
+    await clienteAxios.put(`/exam/preguntas/${props.idx}`, data);
+    props.history.push("/lista")
   };
 
   return (
@@ -135,6 +141,16 @@ const UPregunta = ({ idx }) => {
             onChange={datoState}
           />
         </Form.Group>
+        <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Control
+            style={{ border: "2px solid blue" }}
+            type="text"
+            placeholder="Tema"
+            name="tema"
+            value={tema}
+            onChange={datoState}
+          />
+        </Form.Group>
         <Button
           block
           style={{ borderRadius: "15px" }}
@@ -148,4 +164,4 @@ const UPregunta = ({ idx }) => {
   );
 };
 
-export default UPregunta;
+export default withRouter(UPregunta);
