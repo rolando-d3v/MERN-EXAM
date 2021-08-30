@@ -27,6 +27,10 @@ const PreguntaSchema = new Schema({
         type:String
     },
     respuesta_correcta: {
+        type:String,
+        required: true
+    },
+    tema: {
         type:String
     },
 })
