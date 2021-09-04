@@ -5,6 +5,9 @@ const PreguntaSchema = new Schema({
         required: true,
         unique: true,
     },
+    idx: {
+        type: String
+    },
     pregunta: {
         type: String
     },
