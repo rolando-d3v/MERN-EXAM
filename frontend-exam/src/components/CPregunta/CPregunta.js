@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import clienteAxios from "../config/axios";
+import clienteAxios from "../../config/axios";
 import { Form, Button, Alert } from "react-bootstrap";
-import "./CPregunta/CPregunta.scss";
+import "./CPregunta.scss";
 
 const CPregunta = (props) => {
   const [data, setData] = useState({
@@ -83,7 +83,7 @@ const CPregunta = (props) => {
           <Form.Label style={{ color: "blue", fontWeight: "bold" }}>
             Pre2
           </Form.Label>
-          <Form.Control
+          <Form.Control  className='pre2'
             as="textarea"
             rows="8"
             name="pre2"

@@ -1,5 +1,5 @@
 import React from 'react'
-import CPregunta from '../components/CPregunta'
+import CPregunta from '../components/CPregunta/CPregunta.js'
 
 function CreatePregunta() {
     return (
