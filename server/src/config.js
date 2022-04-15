@@ -1,6 +1,6 @@
 
 //PUERTO DE SERVER
-process.env.PORT = process.env.PORT || 4000;
+process.env.PORT = process.env.PORT || 5000;
 
 
 //PUERTO DE DB DE MONGODB

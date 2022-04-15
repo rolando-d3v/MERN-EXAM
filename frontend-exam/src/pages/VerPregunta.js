@@ -9,7 +9,7 @@ const VerPregunta = (props) => {
 
   useEffect(() => {
     const res = async () => {
-      const re = await clienteAxios.get(`/exam/preguntas/${idx}`);
+      const re = await clienteAxios.get(`/preguntas/${id}`);
       console.log(re.data);
       setMostrarPregunta(re.data);
     };

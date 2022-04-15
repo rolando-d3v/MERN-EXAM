@@ -21,7 +21,7 @@ const UPregunta = (props) => {
 
   useEffect(() => {
     const res = async () => {
-      const re = await clienteAxios.get(`/exam/preguntas/${props.idx}`);
+      const re = await clienteAxios.get(`/preguntas/${props.idx}`);
       console.log(re.data);
       setData(re.data);
     };
@@ -50,7 +50,7 @@ const UPregunta = (props) => {
 
   const updatePregunta = async (e) => {
     e.preventDefault();
-    await clienteAxios.put(`/exam/preguntas/${props.idx}`, data);
+    await clienteAxios.put(`/preguntas/${props.idx}`, data);
     props.history.push("/lista")
   };
 

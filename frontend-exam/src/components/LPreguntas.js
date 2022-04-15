@@ -25,7 +25,7 @@ const eliminarPregunta = async (id) => {
             'success'
           )
           console.log(id);
-          await clienteAxios.delete(`/exam/preguntas/${id}`)
+          await clienteAxios.delete(`/preguntas/${id}`)
           apiRest()
         }
       })
@@ -52,7 +52,7 @@ const eliminarPregunta = async (id) => {
         </thead>
         <tbody >
           {preguntas.map((e_pre) => (
-            <tr key={e_pre._id}>
+            <tr key={e_pre.idx}>
               <td style={{width: "3em"}} className="text-center font-weight-bold" >{e_pre.id} </td>
               <td style={{width: "30em"}} >{e_pre.pregunta}</td>
               <td style={{width: "9em" }} > <pre>{e_pre.pre2}</pre> </td>
@@ -63,9 +63,9 @@ const eliminarPregunta = async (id) => {
               <td>{e_pre.respuesta_e}</td>
               <td style={{width: "6em"}} className="text-center font-weight-bold" >{e_pre.respuesta_correcta}</td>
               <td className="d-flex flex-column" >
-                <button className="btn btn-danger mb-2" onClick={()=> eliminarPregunta(e_pre._id) } >Eliminar</button>
-                <Link to={`/update/${e_pre._id}`} className="btn btn-success" >Editar</Link>
-                <Link to={`/ver/${e_pre._id}`} className="btn btn-info mt-2" >Ver mas</Link>
+                <button className="btn btn-danger mb-2" onClick={()=> eliminarPregunta(e_pre.idx) } >Eliminar</button>
+                <Link to={`/update/${e_pre.idx}`} className="btn btn-success" >Editar</Link>
+                <Link to={`/ver/${e_pre.idx}`} className="btn btn-info mt-2" >Ver mas</Link>
               </td>
             </tr>
           ))}

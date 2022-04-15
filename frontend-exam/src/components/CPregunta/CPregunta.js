@@ -37,7 +37,7 @@ const CPregunta = (props) => {
     if (!id) {
       setError("falta poner un ID");
     } else {
-      await clienteAxios.post("/exam/preguntas", data);
+      await clienteAxios.post("/preguntas", data);
       props.history.push("/lista");
     }
   };
@@ -49,7 +49,7 @@ const CPregunta = (props) => {
   }, []);
 
   const apiRest = async () => {
-    const res = await clienteAxios.get(`/exam/preguntas`);
+    const res = await clienteAxios.get(`/preguntas`);
     console.log(res.data);
     setPreguntas(res.data);
   };

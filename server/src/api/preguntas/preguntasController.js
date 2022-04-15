@@ -62,7 +62,7 @@ export const getPreguntas = async (req, res) => {
 export const getPreguntaId = async (req, res) => {
   try {
     const producto = await  prisma.preguntas_SO2_SO1_INTG.findUnique({
-      id: req.params.id,
+      idx: req.params.id,
     });
 
     !producto

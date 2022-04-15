@@ -11,7 +11,7 @@ function ListPreguntas() {
     }, [])
 
     const apiRest = async () => {
-        const res = await clienteAxios.get(`/exam/preguntas`)
+        const res = await clienteAxios.get(`/preguntas`)
         console.log(res.data);
         setPreguntas(res.data)
     }
