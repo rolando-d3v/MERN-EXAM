@@ -1,12 +1,8 @@
-
 // const { v4: uuidv4 } = require("uuid");
 
-import {PrismaClient} from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
-
-
-
 
 //==============================
 //CREATED PRODUCTO
@@ -35,7 +31,6 @@ export const createPregunta = async (req, res) => {
   }
 };
 
-
 //==============================
 //GET PRODUCTOS CON PAGINATE
 //==============================
@@ -58,15 +53,7 @@ export const getPreguntas = async (req, res) => {
 };
 
 
-//GET PRODUCTOS
-// export const getProductos = async (req, res) => {
-//   try {
-//     const producto = await productoModel.find();
-//     res.status(200).json({ ok: true, producto });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+
 
 
 //==============================
@@ -74,8 +61,8 @@ export const getPreguntas = async (req, res) => {
 //==============================
 export const getPreguntaId = async (req, res) => {
   try {
-    const producto = await productoModel.findById({
-      _id: req.params.productoId,
+    const producto = await  prisma.preguntas_SO2_SO1_INTG.findUnique({
+      id: req.params.id,
     });
 
     !producto
@@ -92,30 +79,26 @@ export const getPreguntaId = async (req, res) => {
 //==============================
 export const updatePregunta = async (req, res) => {
   try {
-    const producto = await productoModel.findByIdAndUpdate(
-      { _id: req.params.productoId },
+    const pregunta = await prisma.preguntas_SO2_SO1_INTG.update (
+      { _id: req.params.id },
       req.body,
       { new: true }
     );
-
-    !producto
-      ? res.send({ message: "el id no existe" })
-      : res.status(204).json({ ok: true, producto });
+    res.json({ message: "pregunta update successfully", pregunta });
   } catch (err) {
     console.log(err);
   }
 };
-
 
 //==============================
 //DELETE ONE PRODUCTO
 //==============================
 export const deletePregunta = async (req, res) => {
   try {
-    const producto = await productoModel.findOneAndDelete({
-      _id: req.params.productoId,
+    const pregunta = await PreguntaModels.findOneAndDelete({
+      _id: req.params.id,
     });
-    res.json({ ok: true, message: `${producto.name} deleted successfully` });
+    res.json({ message: `pregunta ${pregunta.id} deleted successfully` });
   } catch (err) {
     console.log(err);
   }
