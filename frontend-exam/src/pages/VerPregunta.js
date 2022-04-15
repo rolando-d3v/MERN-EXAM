@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import clienteAxios from "../config/axios";
 
 const VerPregunta = (props) => {
-  const idx = props.match.params.id;
-  // console.log(props.match.params.id);
+  const idxx = props.match.params.id;
+  console.log(idxx);
 
   const [mostrarPregunta, setMostrarPregunta] = useState({});
 
   useEffect(() => {
     const res = async () => {
-      const re = await clienteAxios.get(`/preguntas/${id}`);
+      const re = await clienteAxios.get(`/preguntas/${idxx}`);
       console.log(re.data);
       setMostrarPregunta(re.data);
     };

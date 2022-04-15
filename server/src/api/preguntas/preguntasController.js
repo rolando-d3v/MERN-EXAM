@@ -52,34 +52,32 @@ export const getPreguntas = async (req, res) => {
   }
 };
 
-
-
-
-
 //==============================
 //GET ONE PRODUCTO
 //==============================
 export const getPreguntaId = async (req, res) => {
+  let idx = req.params.id;
   try {
-    const producto = await  prisma.preguntas_SO2_SO1_INTG.findUnique({
-      idx: req.params.id,
+    const pro = await prisma.preguntas_SO2_SO1_INTG.findFirst({
+      where: { idx: idx },
     });
 
-    !producto
-      ? res.send({ message: "el id no existe" })
-      : res.status(200).json({ ok: true, producto });
+    return res.json(pro);
+
+    // !producto
+    //   ? res.send({ message: "el id no existe" })
+    //   : res.status(200).json({ ok: true, producto });
   } catch (err) {
     console.log(err);
   }
 };
-
 
 //==============================
 //UPDATE ONE PRODUCTO
 //==============================
 export const updatePregunta = async (req, res) => {
   try {
-    const pregunta = await prisma.preguntas_SO2_SO1_INTG.update (
+    const pregunta = await prisma.preguntas_SO2_SO1_INTG.update(
       { _id: req.params.id },
       req.body,
       { new: true }
@@ -95,10 +93,13 @@ export const updatePregunta = async (req, res) => {
 //==============================
 export const deletePregunta = async (req, res) => {
   try {
-    const pregunta = await PreguntaModels.findOneAndDelete({
-      _id: req.params.id,
+    let idx = req.params.id;
+
+    const pre = await prisma.preguntas_SO2_SO1_INTG.deleteMany({
+      where: { idx: idx },
     });
-    res.json({ message: `pregunta ${pregunta.id} deleted successfully` });
+
+    res.json({ message: `pregunta ${pre.id} deleted successfully` });
   } catch (err) {
     console.log(err);
   }
