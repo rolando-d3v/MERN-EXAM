@@ -40,7 +40,7 @@ exports.createPregunta = async (req, res) => {
 exports.getPregunta = async (req, res) => {
   try {
     const pregunta = await PreguntaModels.findById({
-      _id: req.params.IdPregunta,
+      _id: req.params.id,
     });
     res.json(pregunta);
   } catch (error) {

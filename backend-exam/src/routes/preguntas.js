@@ -3,7 +3,7 @@ const router = Router()
 const {getPreguntas, getPregunta, createPregunta, updatePregunta, removePregunta} = require('../controllers/PreguntaController')
 
 router.get('/preguntas', getPreguntas)
-router.get('/preguntas/:IdPregunta', getPregunta)
+router.get('/preguntas/:id', getPregunta)
 router.post('/preguntas', createPregunta)
 router.put('/preguntas/:IdPregunta', updatePregunta)
 router.delete('/preguntas/:IdPregunta', removePregunta)

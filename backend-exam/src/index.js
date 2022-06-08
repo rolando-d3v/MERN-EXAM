@@ -21,4 +21,4 @@ app.use(bodyParser.json())
 
 
 //router
-app.use('/exam', require('./routes/preguntas'))
+app.use('/', require('./routes/preguntas'))

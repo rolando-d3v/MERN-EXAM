@@ -38,4 +38,4 @@ const PreguntaSchema = new Schema({
     },
 })
 
-module.exports = model('preguntas', PreguntaSchema )
+module.exports = model('2022 Bco RRGG Tco3', PreguntaSchema )
