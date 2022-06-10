@@ -5,6 +5,8 @@ import { Form, Button, Alert } from "react-bootstrap";
 import "./CPregunta.scss";
 
 const CPregunta = (props) => {
+
+  const [preguntas, setPreguntas] = useState([]);
   const [data, setData] = useState({
     id: "",
     pregunta: "",
@@ -17,10 +19,12 @@ const CPregunta = (props) => {
     respuesta_correcta: "",
     tema: "",
   });
-
+  
   const [error, setError] = useState(null);
 
   const { id } = data;
+
+  console.log(id);
 
   const datoState = (e) => {
     console.log(e.target.name);
@@ -30,6 +34,11 @@ const CPregunta = (props) => {
     });
     setError(null);
   };
+
+
+
+
+
 
   const crearPregunta = async (e) => {
     console.log(preguntas.id);
@@ -43,7 +52,6 @@ const CPregunta = (props) => {
   };
 
   // para obtener cantidad de pregunta
-  const [preguntas, setPreguntas] = useState([]);
   useEffect(() => {
     apiRest();
   }, []);
