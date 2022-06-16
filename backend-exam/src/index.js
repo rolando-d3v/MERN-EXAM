@@ -22,3 +22,5 @@ app.use(bodyParser.json())
 
 //router
 app.use('/', require('./routes/preguntas'))
+app.use('/', require('./routes/user.routes'))
+app.use('/', require('./routes/auth.routes'))

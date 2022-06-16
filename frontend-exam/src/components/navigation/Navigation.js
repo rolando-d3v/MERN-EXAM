@@ -12,6 +12,7 @@ const Navigation = () => {
             <Link to="/" className="nav-link" >Home</Link>
             <Link to="/lista" className="nav-link" >Lista</Link>
             <Link to="/create" className="nav-link" >Crea Pregunta</Link>
+            <Link to="/user" className="nav-link" >Crea User</Link>
           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <Link to="/create" className=" dropdown-item" > crear Pregunta</Link>
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

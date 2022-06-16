@@ -7,6 +7,7 @@ import ListPreguntas from "./pages/ListPreguntas";
 import CreatePregunta from "./pages/CreatePregunta";
 import UpdatePregunta from "./pages/UpdatePregunta";
 import VerPregunta from "./pages/VerPregunta";
+import FormularioUser from "./components/userCreate/FormularioUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact={true} path="/" component={Home} />
             <Route exact={true} path="/lista" component={ListPreguntas} />
             <Route exact={true} path="/create" component={CreatePregunta} />
+            <Route exact={true} path="/user" component={FormularioUser} />
             <Route exact={true} path="/update/:id" component={UpdatePregunta} />
             <Route exact={true} path="/ver/:id" component={VerPregunta} />
           </Switch>
